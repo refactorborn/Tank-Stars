@@ -1,0 +1,121 @@
+1. Class Tank -> Implements WeaponUse
+    Variables:-
+    1.1 Health
+    1.2 Fuel
+    1.3 Weapons
+    Methods:-
+    1.4 Move()
+    1.5 Shoot() // UseWeapon() from Interface
+    1.6 Aim()
+    1.7 ChangeWeapon()
+    1.8 ReloadWeapons() // AddWeapon() from Interface
+    1.9 Remove() // RemoveWeapon() from Interface
+
+2. Class Abrams -> Extending Tank
+    Variables:-
+    2.1 Health - X;
+    2.2 Fuel - X;
+    2.3 Weapons - ArrayList of Weapons:-
+         2.3.1 Vertical Slam = new Weapon()
+         2.3.2 Splitter Chain = new Weapon()
+         2.3.3 Big One = new Weapon()
+         2.3.4 Air Strike = new Weapon()
+         2.3.5 Shotgun = new Weapon()
+         2.3.6 Volley = new Weapon()
+
+3. Class Frost -> Extending Tank
+    Variables:-
+    3.1 Health - X;
+    3.2 Fuel - X;
+    3.3 Weapons - ArrayList of Weapons:-
+        3.3.1 Frostblast = new Weapon()
+        3.3.2 Frostbite = new Weapon()
+        3.3.3 Assault Drones = new Weapon()
+        3.3.4 Blizzard = new Weapon()
+        3.3.5 High Pressure = new Weapon()
+        3.3.6 Ice Splitter = new Weapon()
+
+4. Class Spectre -> Extending Tank
+    Variables:-
+    4.1 Health - X;
+    4.2 Fuel - X;
+    4.3 Weapons - ArrayList of Weapons:-
+        4.3.1 Railgun = new Weapon()
+        4.3.2 Lightning Ball = new Weapon()
+        4.3.3 Lightning Drone = new Weapon()
+        4.3.4 Lightning = new Weapon()
+        4.3.5 Orbital Strike = new Weapon()
+        4.3.6 Tesla Zone = new Weapon()
+
+5. Class MainMenu
+    Methods:-
+    5.1 StartGame() = new StartGame()
+    5.2 LoadGame() = new LoadGame()
+    5.3 Options() = new MainMenuOptions()
+    5.4 ExitGame = new ExitGame()
+
+6. Class StartGame -> Extending ChooseTank
+    Methods:-
+    6.1 StartGame()
+
+7. Class ChooseTank
+    Variables-
+    7.1 AllTanks = ArrayList of Tanks:-
+        7.1.1 Abrams = new Tank()
+        7.1.2 Frost = new Tank()
+        7.1.3 Spectre = new Tank()
+    Methods:-
+    7.2 ChooseTank()
+
+8. Interface WeaponUse
+    Methods:-
+    8.1 UseWeapons()
+    8.2 RemoveWeapons()
+    8.3 AddWeapons()
+
+9. Class Weapons
+    Variables:-
+    9.1 Name
+    9.2 Damage
+    9.3 Range
+    9.4 Spread
+
+10. Class Game -> GameObjects
+    Methods:-
+    10.1 TakeTurns()
+    10.2 CheckForWin()
+    10.3 CheckForReload()
+
+11. Class GameObjects -> Extends GameHUD
+    Variables:-
+    11.1 Ground
+    11.2 Props
+    11.3 Tank1 = new Tank()
+    11.4 Tank2 = new Tank()
+
+12. Class GameHUD -> Extends InGameOptions
+    Variables:-
+    12.1 Health Bars
+    12.2 Fuel
+    12.3 Weapons
+    12.4 Fire
+    12.5 Aim
+    12.6 Options
+
+13. Class InGameOptions
+    Methods:-
+    13.1 SaveGame()
+    13.3 ExitMainMenu()
+
+14. Class LoadGame
+    Variables:-
+    14.1 SaveFiles - ArrayList of SaveFiles
+    Methods:-
+    14.1 LoadGame()
+
+15. Class SaveFile
+    // To be Filled in Later
+
+16. Class ExitGame
+    Methods:-
+    16.1 ExitGame()
