@@ -11,12 +11,12 @@ import com.ts.game.ts;
 public class ExitPopupScreen extends ScreenAdapter {
     private Stage stage;
     private ts game;
+
     public ExitPopupScreen(ts game) {
         this.game = game;
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
     }
-
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -27,7 +27,6 @@ public class ExitPopupScreen extends ScreenAdapter {
     public void resize(int width, int height) {
         super.resize(width, height);
     }
-
     @Override
     public void show() {
         final Dialog menu = new Dialog("", game.resource.getSkin());

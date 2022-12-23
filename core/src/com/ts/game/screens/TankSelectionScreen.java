@@ -14,7 +14,7 @@ import com.ts.game.ts;
 
 import java.util.ArrayList;
 
-public class TankSelectionScreen extends ScreenAdapter {
+public class TankSelectionScreen extends ScreenAdapter implements SelectionScreen {
     private Stage stage;
     private Table table1;
     private Table table2;
@@ -24,7 +24,6 @@ public class TankSelectionScreen extends ScreenAdapter {
     private ArrayList<Image> tankBanners = new ArrayList<Image>();
     private ArrayList<String> tankNames = new ArrayList<String>();
     private boolean player1Check = false, player2Check = false;
-
     public TankSelectionScreen(final ts game) {
         //Initiating
         this.game = game;
@@ -48,6 +47,7 @@ public class TankSelectionScreen extends ScreenAdapter {
         stage.addActor(table2);
         Gdx.input.setInputProcessor(stage);
     }
+    @Override
     public void createTable1(){
         table1 = new Table();
         table1 = new Table();
@@ -58,6 +58,7 @@ public class TankSelectionScreen extends ScreenAdapter {
         table1.add(previewImages.get(current)).width(previewImages.get(current).getWidth()).height(previewImages.get(current).getHeight()).align(Align.center);
         table1.padBottom(75);
     }
+    @Override
     public void createTable2(){
         //Table Instatiation
         table2 = new Table();
@@ -123,6 +124,7 @@ public class TankSelectionScreen extends ScreenAdapter {
                     }
                 }
                 if(player1Check && player2Check){
+                    game.gameMode= 0;
                     game.setScreen(new GameScreen(game));
                 }
                 backBtn.setText("Cancel Selection");
@@ -173,19 +175,17 @@ public class TankSelectionScreen extends ScreenAdapter {
         btnGroup.addActor(backBtn);
         table2.add(btnGroup);
     }
-
+    @Override
     public void handleInput(Label player1Label, Label player2Label){
         if(!this.player1Check) {
             this.player1Check = true;
             player1Label.setText(tankNames.get(current));
-            System.out.println("Player 1 Selected Tank at : " + current);
-            game.metadata.add(String.valueOf(current));
+            game.metadata.set(0,String.valueOf(current));
         }
         else if(!this.player2Check){
             this.player2Check = true;
             player2Label.setText(tankNames.get(current));
-            System.out.println("Player 2 Selected Tank at : " + current);
-            game.metadata.add(String.valueOf(current));
+            game.metadata.set(1,String.valueOf(current));
         }
     }
 
@@ -196,31 +196,25 @@ public class TankSelectionScreen extends ScreenAdapter {
         stage.act();
         stage.draw();
     }
-
     @Override
     public void resize(int width, int height) {
         super.resize(width, height);
     }
-
     @Override
     public void hide() {
         super.hide();
     }
-
     @Override
     public void pause() {
         super.pause();
     }
-
     @Override
     public void resume() {
         super.resume();
     }
-
     @Override
     public void dispose() {
     }
-
     @Override
     public void show() {
         super.show();

@@ -16,7 +16,6 @@ public class OptionsScreen extends ScreenAdapter {
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
     }
-
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -27,19 +26,24 @@ public class OptionsScreen extends ScreenAdapter {
     public void resize(int width, int height) {
         super.resize(width, height);
     }
-
     @Override
     public void show() {
         final Dialog menu = new Dialog("", game.resource.getSkin());
         VerticalGroup buttons = new VerticalGroup();
         Label optionsLabel = new Label("Options", game.resource.getSkin());
-        TextButton audio = new TextButton("Audio", game.resource.getTextButtonStyle1());
+        TextButton develop = new TextButton("Development", game.resource.getTextButtonStyle1());
+        TextButton mutable = new TextButton("Ground ++", game.resource.getTextButtonStyle1());
+        TextButton testing = new TextButton("Testing", game.resource.getTextButtonStyle1());
         TextButton exitBtn = new TextButton("Exit", game.resource.getTextButtonStyle1());
         optionsLabel.setFontScale(2);
         optionsLabel.setColor(0,0,0,1);
         buttons.addActor(optionsLabel);
         buttons.space(10);
-        buttons.addActor(audio);
+        buttons.addActor(testing);
+        buttons.space(10);
+        buttons.addActor(develop);
+        buttons.space(10);
+        buttons.addActor(mutable);
         buttons.space(10);
         buttons.addActor(exitBtn);
         buttons.pad(15);
@@ -50,10 +54,25 @@ public class OptionsScreen extends ScreenAdapter {
         menu.show(stage);
         menu.setSize(buttons.getWidth(), buttons.getHeight());
         menu.setPosition((float)Gdx.graphics.getWidth()/ 2 - menu.getWidth() / 2, (float)Gdx.graphics.getHeight() / 2 - menu.getHeight() / 2);
-        audio.addListener(new ClickListener() {
+        develop.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                game.controls.setBgAudio(false);
+                game.resource.getBtnClickAudio().play();
+                game.controls.setDevelopmentMode(!game.controls.isDevelopmentMode());
+            }
+        });
+        mutable.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.resource.getBtnClickAudio().play();
+                game.controls.setMutableGround(!game.controls.isMutableGround());
+            }
+        });
+        testing.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.resource.getBtnClickAudio().play();
+                game.controls.setTesting(!game.controls.isTesting());
             }
         });
         exitBtn.addListener(new ClickListener() {
