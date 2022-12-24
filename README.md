@@ -16,3 +16,9 @@ Adaption of popular mobile game Tank Stars for Advanced Programming Course (CSE2
 5. Save/Load game feature
 6. Multiple tanks and weapons to choose from
 7. Random weapon drops
+
+## Visuals
+
+![start](Info/start.png)
+
+![play](Info/play.png)
