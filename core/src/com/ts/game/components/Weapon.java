@@ -2,7 +2,6 @@ package com.ts.game.components;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.physics.box2d.*;
-import com.ts.game.CollisionDetection;
 
 public class Weapon {
     private String name;
